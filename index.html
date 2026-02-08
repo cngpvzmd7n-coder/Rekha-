@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For HASHITH 💖</title>
+
+  <style>
+    body {
+      margin:0;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#ffd6e8,#ffeef7);
+      font-family:Georgia,serif;
+      text-align:center;
+    }
+
+    .card {
+      background:white;
+      padding:40px;
+      border-radius:25px;
+      box-shadow:0 15px 40px rgba(0,0,0,0.15);
+      max-width:380px;
+      width:90%;
+    }
+
+    h1 {
+      color:#c2185b;
+      margin-bottom:20px;
+    }
+
+    p {
+      font-size:18px;
+    }
+
+    button {
+      margin:10px;
+      padding:12px 26px;
+      border:none;
+      border-radius:30px;
+      font-size:16px;
+      cursor:pointer;
+      background:#c2185b;
+      color:white;
+      transition:0.3s;
+    }
+
+    button:hover {
+      transform:scale(1.07);
+    }
+
+    .no {
+      background:#f8c8dc;
+      color:#c2185b;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="bgm" src="lover.mp3" loop preload="auto"></audio>
+<audio id="yesSound" src="paper.mp3" preload="auto"></audio>
+<audio id="noSound" src="nice.mp3" preload="auto"></audio>
+
+<div class="card" id="card">
+  <h1>Tap to Begin 💖</h1>
+  <button onclick="start()">Start ✨</button>
+</div>
+
+<script>
+
+let bgm = document.getElementById("bgm");
+let yesSound = document.getElementById("yesSound");
+let noSound = document.getElementById("noSound");
+
+function start() {
+  bgm.currentTime = 0;
+  bgm.play();
+
+  document.getElementById("card").innerHTML = `
+    <h1>Will you be my Valentine, HASHITH? 💌</h1>
+    <button onclick="sayYes()">Yes 💘</button>
+    <button class="no" onclick="sayNo()">No 🙃</button>
+  `;
+}
+
+function sayYes() {
+  bgm.pause();
+  bgm.currentTime = 0;
+
+  yesSound.currentTime = 0;
+  yesSound.play();
+
+  document.getElementById("card").innerHTML = `
+    <h1>HE SAID YES 😭💍</h1>
+    <p>I like shiny things, but I'd marry you with paper rings ✨</p>
+  `;
+}
+
+function sayNo() {
+  bgm.pause();
+  bgm.currentTime = 0;
+
+  noSound.currentTime = 0;
+  noSound.play();
+
+  document.getElementById("card").innerHTML = `
+    <h1>This is why we can't have nice things 😌</h1>
+    <p>U better read the damn question right again 🔪🙂</p>
+  `;
+
+  setTimeout(function(){
+    location.reload();
+  }, 8000);
+}
+
+</script>
+
+</body>
+</html>
